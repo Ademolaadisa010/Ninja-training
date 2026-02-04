@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Trainings - NaijaTrainings</title>
+    <meta name="description" content="Find in-person training programs across Nigeria. Browse verified physical trainings in your city with hands-on learning.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <a href="index.html"><span class="text-2xl font-bold text-gray-900">Naija<span class="text-green-600">Trainings</span></span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="online-trainings.html" class="text-gray-700 hover:text-green-600 font-medium transition">Online Trainings</a>
+                    <a href="physical-trainings.html" class="text-green-600 font-semibold">Physical Trainings</a>
+                    <a href="categories.html" class="text-gray-700 hover:text-green-600 font-medium transition">Categories</a>
+                    <a href="advertise.html" class="text-gray-700 hover:text-green-600 font-medium transition">Advertise</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600 font-medium transition">About Us</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden pb-4" id="mobile-menu">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-green-600">Home</a>
+                <a href="online-trainings.html" class="block py-2 text-gray-700 hover:text-green-600">Online Trainings</a>
+                <a href="physical-trainings.html" class="block py-2 text-green-600 font-semibold">Physical Trainings</a>
+                <a href="categories.html" class="block py-2 text-gray-700 hover:text-green-600">Categories</a>
+                <a href="advertise.html" class="block py-2 text-gray-700 hover:text-green-600">Advertise</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-green-600">About Us</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-green-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="index.html" class="hover:text-green-600">Home</a>
+                <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                <span class="text-green-600 font-semibold">Physical Trainings</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-3">Physical Trainings</h1>
+            <p class="text-green-50 text-lg">Find hands-on, in-person training programs in your city. Learn directly from experienced instructors.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Filter Sidebar -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-lg text-gray-900">Filters</h3>
+                        <button class="text-green-600 text-sm font-semibold hover:text-green-700" id="reset-filters">Reset</button>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Search</label>
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="Search trainings..." class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
+                        </div>
+                    </div>
+
+                    <!-- State Filter -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">State</label>
+                        <select class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">All States</option>
+                            <option value="lagos">Lagos</option>
+                            <option value="abuja">Abuja (FCT)</option>
+                            <option value="rivers">Rivers</option>
+                            <option value="oyo">Oyo</option>
+                            <option value="kano">Kano</option>
+                            <option value="anambra">Anambra</option>
+                            <option value="enugu">Enugu</option>
+                            <option value="ogun">Ogun</option>
+                            <option value="delta">Delta</option>
+                            <option value="edo">Edo</option>
+                            <option value="kaduna">Kaduna</option>
+                        </select>
+                    </div>
+
+                    <!-- City Filter -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">City</label>
+                        <select class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">All Cities</option>
+                            <option value="ikeja">Ikeja</option>
+                            <option value="surulere">Surulere</option>
+                            <option value="lekki">Lekki</option>
+                            <option value="port-harcourt">Port Harcourt</option>
+                            <option value="ibadan">Ibadan</option>
+                            <option value="abuja">Abuja</option>
+                        </select>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">Category</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-green-600 focus:ring-green-500" value="tech">
+                                <span class="ml-2 text-sm text-gray-700">Tech & IT</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-green-600 focus:ring-green-500" value="creative">
+                                <span class="ml-2 text-sm text-gray-700">Creative Skills</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-green-600 focus:ring-green-500" value="business">
+                                <span class="ml-2 text-sm text-gray-700">Business</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-green-600 focus:ring-green-500" value="health">
+                                <span class="ml-2 text-sm text-gray-700">Health & Medical</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">Price Range</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="radio" name="price" class="text-green-600 focus:ring-green-500" value="all" checked>
+                                <span class="ml-2 text-sm text-gray-700">All Prices</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="price" class="text-green-600 focus:ring-green-500" value="0-50000">
+                                <span class="ml-2 text-sm text-gray-700">Under ₦50,000</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="price" class="text-green-600 focus:ring-green-500" value="50000-100000">
+                                <span class="ml-2 text-sm text-gray-700">₦50,000 - ₦100,000</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="price" class="text-green-600 focus:ring-green-500" value="100000+">
+                                <span class="ml-2 text-sm text-gray-700">Above ₦100,000</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                        Apply Filters
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Training Listings -->
+            <main class="flex-1">
+                <!-- Toolbar -->
+                <div class="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <p class="text-gray-700"><span class="font-semibold">89</span> physical trainings found</p>
+                    <div class="flex gap-3 items-center">
+                        <label class="text-sm text-gray-600">Sort by:</label>
+                        <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option>Nearest to Me</option>
+                            <option>Latest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Training Cards Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Training Card 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="sm:w-40 h-40 sm:h-auto bg-gradient-to-br from-pink-500 to-pink-700 relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1558769132-cb1aea1f1c1c?w=400&h=300&fit=crop" alt="Fashion Design" class="w-full h-full object-cover">
+                                <span class="absolute top-2 left-2 bg-pink-600 text-white px-2 py-1 rounded text-xs font-bold">Creative</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Professional Fashion Design & Tailoring</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Master pattern making, sewing, and fashion illustration with hands-on training.</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center text-gray-500 text-xs">
+                                        <i class="fas fa-map-marker-alt mr-1 text-green-600"></i>
+                                        <span>Abuja, FCT</span>
+                                    </div>
+                                    <div class="text-green-600 font-bold">₦80,000</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="training-details.html" class="flex-1 bg-green-600 text-white text-center py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition">
+                                        View Details
+                                    </a>
+                                    <a href="https://wa.me/2349076956531?text=I'm interested in Fashion Design training in Abuja" target="_blank" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Training Card 2 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="sm:w-40 h-40 sm:h-auto bg-gradient-to-br from-orange-500 to-orange-700 relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=300&fit=crop" alt="Catering" class="w-full h-full object-cover">
+                                <span class="absolute top-2 left-2 bg-orange-600 text-white px-2 py-1 rounded text-xs font-bold">Creative</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Professional Catering & Event Management</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Learn menu planning, food prep, and event catering with practical sessions.</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center text-gray-500 text-xs">
+                                        <i class="fas fa-map-marker-alt mr-1 text-green-600"></i>
+                                        <span>Port Harcourt, Rivers</span>
+                                    </div>
+                                    <div class="text-green-600 font-bold">₦60,000</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="training-details.html" class="flex-1 bg-green-600 text-white text-center py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition">
+                                        View Details
+                                    </a>
+                                    <a href="https://wa.me/2349076956531?text=I'm interested in Catering training in Port Harcourt" target="_blank" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Training Card 3 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="sm:w-40 h-40 sm:h-auto bg-gradient-to-br from-yellow-500 to-yellow-700 relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400&h=300&fit=crop" alt="Photography" class="w-full h-full object-cover">
+                                <span class="absolute top-2 left-2 bg-yellow-600 text-white px-2 py-1 rounded text-xs font-bold">Creative</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Professional Photography & Videography</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Master camera techniques, lighting, and editing with hands-on practice.</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center text-gray-500 text-xs">
+                                        <i class="fas fa-map-marker-alt mr-1 text-green-600"></i>
+                                        <span>Ibadan, Oyo</span>
+                                    </div>
+                                    <div class="text-green-600 font-bold">₦90,000</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="training-details.html" class="flex-1 bg-green-600 text-white text-center py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition">
+                                        View Details
+                                    </a>
+                                    <a href="https://wa.me/2349076956531?text=I'm interested in Photography training in Ibadan" target="_blank" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Training Card 4 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="sm:w-40 h-40 sm:h-auto bg-gradient-to-br from-teal-500 to-teal-700 relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=300&fit=crop" alt="Makeup Artistry" class="w-full h-full object-cover">
+                                <span class="absolute top-2 left-2 bg-teal-600 text-white px-2 py-1 rounded text-xs font-bold">Creative</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Professional Makeup Artistry Course</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Learn bridal makeup, special effects, and product knowledge with live models.</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center text-gray-500 text-xs">
+                                        <i class="fas fa-map-marker-alt mr-1 text-green-600"></i>
+                                        <span>Lagos, Lagos</span>
+                                    </div>
+                                    <div class="text-green-600 font-bold">₦75,000</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="training-details.html" class="flex-1 bg-green-600 text-white text-center py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition">
+                                        View Details
+                                    </a>
+                                    <a href="https://wa.me/2349076956531?text=I'm interested in Makeup Artistry training in Lagos" target="_blank" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Training Card 5 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="sm:w-40 h-40 sm:h-auto bg-gradient-to-br from-cyan-500 to-cyan-700 relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?w=400&h=300&fit=crop" alt="Welding" class="w-full h-full object-cover">
+                                <span class="absolute top-2 left-2 bg-cyan-600 text-white px-2 py-1 rounded text-xs font-bold">Tech & IT</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Welding & Fabrication Training</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Professional welding techniques with hands-on practice and safety certification.</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center text-gray-500 text-xs">
+                                        <i class="fas fa-map-marker-alt mr-1 text-green-600"></i>
+                                        <span>Enugu, Enugu</span>
+                                    </div>
+                                    <div class="text-green-600 font-bold">₦55,000</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="training-details.html" class="flex-1 bg-green-600 text-white text-center py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition">
+                                        View Details
+                                    </a>
+                                    <a href="https://wa.me/2349076956531?text=I'm interested in Welding training in Enugu" target="_blank" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Training Card 6 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="sm:w-40 h-40 sm:h-auto bg-gradient-to-br from-lime-500 to-lime-700 relative flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=300&fit=crop" alt="Barbing" class="w-full h-full object-cover">
+                                <span class="absolute top-2 left-2 bg-lime-600 text-white px-2 py-1 rounded text-xs font-bold">Creative</span>
+                            </div>
+                            <div class="p-4 flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Professional Barbing & Hair Styling</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Learn cutting techniques, styling, and salon management with live practice.</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center text-gray-500 text-xs">
+                                        <i class="fas fa-map-marker-alt mr-1 text-green-600"></i>
+                                        <span>Kano, Kano</span>
+                                    </div>
+                                    <div class="text-green-600 font-bold">₦45,000</div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="training-details.html" class="flex-1 bg-green-600 text-white text-center py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition">
+                                        View Details
+                                    </a>
+                                    <a href="https://wa.me/2349076956531?text=I'm interested in Barbing training in Kano" target="_blank" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition">
+                                        <i class="fab fa-whatsapp text-green-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-8 flex justify-center">
+                    <nav class="flex items-center gap-2">
+                        <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 disabled:opacity-50" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold">1</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">2</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">3</button>
+                        <span class="px-3 py-2 text-gray-500">...</span>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">7</button>
+                        <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">Naija<span class="text-green-500">Trainings</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Empowering Nigerians with quality training programs to build successful careers and businesses.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-green-500 transition">Home</a></li>
+                        <li><a href="online-trainings.html" class="hover:text-green-500 transition">Online Trainings</a></li>
+                        <li><a href="physical-trainings.html" class="hover:text-green-500 transition">Physical Trainings</a></li>
+                        <li><a href="categories.html" class="hover:text-green-500 transition">Categories</a></li>
+                        <li><a href="about.html" class="hover:text-green-500 transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">For Trainers</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="advertise.html" class="hover:text-green-500 transition">List Your Training</a></li>
+                        <li><a href="advertise.html#pricing" class="hover:text-green-500 transition">Pricing Plans</a></li>
+                        <li><a href="contact.html" class="hover:text-green-500 transition">Partner With Us</a></li>
+                        <li><a href="contact.html" class="hover:text-green-500 transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/2349076956531" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-2"><i class="fas fa-envelope mr-2"></i>info@naijatrainings.com</p>
+                    <p class="text-gray-400 text-sm"><i class="fas fa-phone mr-2"></i>+234 907 695 6531</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-500">&copy; 2024 NaijaTrainings. All rights reserved.</p>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-green-500 transition">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-green-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-green-700 transition hidden items-center justify-center z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/filters.js"></script>
+    <script src="assets/js/form-validation.js"></script>
+</body>
+</html>
